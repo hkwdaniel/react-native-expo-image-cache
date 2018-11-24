@@ -117,12 +117,12 @@ export default class Image extends React.Component<ImageProps, ImageState> {
                     )
                 }
                 {
-                    hasPreview && Platform.OS === "ios" && (
+                    hasPreview && isImageReady && Platform.OS === "ios" && (
                         <AnimatedBlurView style={computedStyle} {...{intensity, tint}} />
                     )
                 }
                 {
-                    hasPreview && Platform.OS === "android" && (
+                    hasPreview && isImageReady && Platform.OS === "android" && (
                         <Animated.View
                             style={[computedStyle, { backgroundColor: tint === "dark" ? black : white, opacity }]}
                         />
@@ -136,6 +136,6 @@ export default class Image extends React.Component<ImageProps, ImageState> {
 const black = "black";
 const white = "white";
 const propsToCopy = [
-    "borderRadius", "borderBottomLeftRadius", "borderBottomRightRadius", "borderTopLeftRadius", "borderTopRightRadius"
+    "width", "height", "borderRadius", "borderBottomLeftRadius", "borderBottomRightRadius", "borderTopLeftRadius", "borderTopRightRadius"
 ];
 const AnimatedBlurView = Animated.createAnimatedComponent(BlurView);
