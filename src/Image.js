@@ -117,12 +117,12 @@ export default class Image extends React.Component<ImageProps, ImageState> {
                     )
                 }
                 {
-                    hasPreview && isImageReady && Platform.OS === "ios" && (
+                    hasPreview && isImageReady && Platform.OS === "ios" && intensity > 0 && (
                         <AnimatedBlurView style={computedStyle} {...{intensity, tint}} />
                     )
                 }
                 {
-                    hasPreview && isImageReady && Platform.OS === "android" && (
+                    hasPreview && isImageReady && Platform.OS === "android" && intensity > 0 && (
                         <Animated.View
                             style={[computedStyle, { backgroundColor: tint === "dark" ? black : white, opacity }]}
                         />
